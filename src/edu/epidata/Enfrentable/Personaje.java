@@ -27,8 +27,7 @@ public class Personaje extends Enfrentable
 	
 	public boolean addAtributo(String k, Atributo a) 
 	{
-		if(k == null || a == null) 
-			return false;
+		if(k == null || a == null) return false;
 		
 		return atributos.put(k, a) != null ? true : false;
 	}
