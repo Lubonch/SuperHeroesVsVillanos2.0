@@ -53,4 +53,29 @@ public class Personaje extends Enfrentable
 		}
 		return sbuilder.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((atributos == null) ? 0 : atributos.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Personaje other = (Personaje) obj;
+		if (atributos == null) {
+			if (other.atributos != null)
+				return false;
+		} else if (!atributos.equals(other.atributos))
+			return false;
+		return true;
+	}
 }

@@ -21,6 +21,5 @@ public class AtributoCondicional implements Atributo
 	{
 		return e.getValorAtributo(Key1) > e.getValorAtributo(Key2)?atributoThen.getValor(e) : atributoElse.getValor(e); 
 	}
-	
-	
+		
 }

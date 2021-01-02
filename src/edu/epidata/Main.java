@@ -81,6 +81,42 @@ public class Main {
 		BlackRx.addAtributo("Inteligencia", new AtributoSimple(600));
 		BlackRx.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
 		
+		Personaje test1 = new Personaje("test1","test1");
+		test1.addAtributo("Fuerza", new AtributoSimple(1));
+		test1.addAtributo("Velocidad", new AtributoSimple(6));
+		test1.addAtributo("Inteligencia", new AtributoSimple(12));
+		test1.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
+		
+		Personaje test2 = new Personaje("test2","test2");
+		test2.addAtributo("Fuerza", new AtributoSimple(783));
+		test2.addAtributo("Velocidad", new AtributoSimple(780));
+		test2.addAtributo("Inteligencia", new AtributoSimple(12));
+		test2.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
+		
+		Personaje test3 = new Personaje("test3","test3");
+		test3.addAtributo("Fuerza", new AtributoSimple(900));
+		test3.addAtributo("Velocidad", new AtributoSimple(360));
+		test3.addAtributo("Inteligencia", new AtributoSimple(120));
+		test3.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
+		
+		Personaje test15 = new Personaje("test15","test15");
+		test15.addAtributo("Fuerza", new AtributoSimple(1));
+		test15.addAtributo("Velocidad", new AtributoSimple(6));
+		test15.addAtributo("Inteligencia", new AtributoSimple(12));
+		test15.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
+		
+		Personaje test25 = new Personaje("test25","test25");
+		test25.addAtributo("Fuerza", new AtributoSimple(783));
+		test25.addAtributo("Velocidad", new AtributoSimple(780));
+		test25.addAtributo("Inteligencia", new AtributoSimple(12));
+		test25.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
+		
+		Personaje test35 = new Personaje("test35","test35");
+		test35.addAtributo("Fuerza", new AtributoSimple(900));
+		test35.addAtributo("Velocidad", new AtributoSimple(360));
+		test35.addAtributo("Inteligencia", new AtributoSimple(120));
+		test35.addAtributo("Resistencia", new AtributoMultiplicacion("Fuerza","Inteligencia"));
+		
 		game.addEnfrentable(Ultraman);
 		game.addEnfrentable(Godzilla);
 		game.addEnfrentable(Gojira);
@@ -101,28 +137,37 @@ public class Main {
 		Kaijus.addIntegrante(Gojira);
 		Kaijus.addIntegrante(Ghidorah);
 		
+		Liga test = new Liga("Test Liga","TLiga");
+		test.addIntegrante(test1);
+		test.addIntegrante(test2);
+		test.addIntegrante(test3);
+		
+		Liga test5 = new Liga("Test Liga5","TLiga5");
+		test5.addIntegrante(test15);
+		test5.addIntegrante(test25);
+		test5.addIntegrante(test35);
+		test5.addIntegrante(test);
+		
 		game.addEnfrentable(KamenRider);
 		game.addEnfrentable(Kaijus);
+		game.addEnfrentable(test5);
+		
 		
 		System.out.println(game.enfrentar(Ultraman, BlackRx, CriteriosComp).getNombre()+" is the winner!");
 		System.out.println(game.enfrentar(KamenRider, Kaijus, CriteriosComp).getNombre()+" is the winner!");
 		System.out.println(game.enfrentar(KamenRider, Ultraman, CriteriosComp).getNombre()+" is the winner!");
-		
 		
 		for(Enfrentable vence : game.quienesVencen(Gojira, CriteriosComp)) 
 		{
 			System.out.println(vence.getNombre());
 		}
 		
-		game.ordenarPersonajes(CriteriosComp);
-		
 		List<Personaje> PersonajesOrdenados = game.ordenarPersonajes(CriteriosComp);
+		
 		for(Personaje pers : PersonajesOrdenados) 
 		{
 			System.out.println(pers.toString());
 		}
-	
-		
 	}
 
 }

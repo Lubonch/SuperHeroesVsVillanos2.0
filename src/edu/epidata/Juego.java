@@ -20,17 +20,16 @@ public class Juego
 	public List<Enfrentable> quienesVencen(Enfrentable e, Comparator<Enfrentable> c)
 	{
 		List<Enfrentable> enfrentablesVencen = enfrentables.stream()
-							  							   .filter(foe -> c.compare(e, foe) < 0)
+							  							   .map(enfren -> e.enfrentar(enfren, c))
+							  							   .distinct()
 							  							   .collect(Collectors.toList());
 		/*
 		for(Enfrentable enfren : enfrentables) 
 		{
-			if(c.compare(e, enfren)>0) 
-			{
-				enfrentablesVencen.add(enfren);
-			}
-		}*/
-		
+			enfrentablesVencen.add(e.enfrentar(enfren, c));
+			
+		}
+		*/
 		return enfrentablesVencen;
 	}
 	
